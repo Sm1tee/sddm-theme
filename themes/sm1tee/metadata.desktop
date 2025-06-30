@@ -1,0 +1,39 @@
+[SddmGreeterTheme]
+Name=sm1tee
+Type=sddm-theme
+License=GPL-3.0-or-later
+Version=0.1
+Theme-Id=silent
+Theme-API=2.0
+MainScript=Main.qml
+TranslationsDirectory=translations
+QtVersion=6
+
+ConfigFile=configs/harry.conf
+
+; ConfigFile=configs/space.conf
+; ConfigFile=configs/space2.conf
+; ConfigFile=configs/bones.conf
+; ConfigFile=configs/calmness.conf
+; ConfigFile=configs/explosion.conf
+; ConfigFile=configs/gate.conf
+; ConfigFile=configs/gate2.conf
+; ConfigFile=configs/house.conf
+; ConfigFile=configs/house2.conf
+; ConfigFile=configs/house3.conf
+; ConfigFile=configs/house4.conf
+; ConfigFile=configs/house5.conf
+; ConfigFile=configs/samurai.conf
+; ConfigFile=configs/samurai2.conf
+; ConfigFile=configs/samurai3.conf
+; ConfigFile=configs/samurai4.conf
+; ConfigFile=configs/witcher.conf
+; ConfigFile=configs/wizard.conf
+; ConfigFile=configs/warrior.conf
+; ConfigFile=configs/demon.conf
+; ConfigFile=configs/window.conf
+; ConfigFile=configs/window2.conf
+; ConfigFile=configs/apocalypse.conf
+; ConfigFile=configs/tree.conf
+; ConfigFile=configs/harry.conf
+; ConfigFile=configs/solder.conf
