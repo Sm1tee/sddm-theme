@@ -13,7 +13,7 @@
 
 **Коллекция из 25+ потрясающих тем для SDDM с анимированными фонами**
 
-[📥 Установка](#-установка) • [🎯 Особенности](#-особенности) • [🎨 Галерея](#-галерея-тем) • [⚙️ Настройка](#-настройка) • [🤝 Вклад](#-благодарности)
+[📥 Установка](#-установка) • [🎯 Особенности](#-особенности) • [🎨 Галерея](#-галерея-тем) • [⚙️ Настройка](#️-настройка)
 
 </div>
 
@@ -55,72 +55,79 @@
 <details>
 <summary><strong>👹 Фэнтези и Мистика</strong></summary>
 
-https://github.com/user-attachments/assets/22cbd624-5613-4de8-8054-285813db416a
+https://github.com/user-attachments/assets/384bfa7d-f1ec-4f60-a897-511669d8679c
 
-https://github.com/user-attachments/assets/4770a350-65bd-431d-9798-8cb8cc87b2bd
+https://github.com/user-attachments/assets/1b17916c-1a90-4f4c-b868-863fbbb8de70
 
-https://github.com/user-attachments/assets/e405a60e-1c20-4d32-b85c-f96da0eb8c11
+https://github.com/user-attachments/assets/21628957-90e1-4136-9e61-8861c6424fee
 
-https://github.com/user-attachments/assets/a4674635-86ad-4844-ab32-77484f60fd3b
+https://github.com/user-attachments/assets/91ec7ca3-baad-4fca-828d-b2d32a8f253f
 
-https://github.com/user-attachments/assets/d202ed36-ea47-43b5-9d60-cfd3df358799
+https://github.com/user-attachments/assets/ead28860-b7cd-422a-83ca-96ab4d98773e
 
-https://github.com/user-attachments/assets/200b4a74-9f40-4c81-9ec9-46c6b3249e88
+https://github.com/user-attachments/assets/0df28a63-bf20-42b6-bee3-128567862dab
+
+https://github.com/user-attachments/assets/4effd896-9b76-49ff-97b3-cc0576840ad6
+
 
 </details>
 
 <details>
 <summary><strong>🏯 Самураи и Воины</strong></summary>
 
-https://github.com/user-attachments/assets/1acfe0c1-7499-4452-b0a4-f0c656180c3d
+https://github.com/user-attachments/assets/d485b2d1-37b3-4e40-b4af-c2a3f1bca4fa
 
-https://github.com/user-attachments/assets/e538d4a6-9f80-4604-8522-69af2176a3b5
+https://github.com/user-attachments/assets/65ebe9aa-77f0-4e10-94d4-981b6464c437
 
-https://github.com/user-attachments/assets/dd5f2816-f742-4ca0-a293-7d00e36c3fb2
+https://github.com/user-attachments/assets/c1146770-13fa-40fb-a092-4334ff9dbb1b
 
-https://github.com/user-attachments/assets/5a96860b-d09b-4166-a485-e700ab7f25db
+https://github.com/user-attachments/assets/956994f3-fcf9-41a9-b025-16d2d75ca35a
 
-https://github.com/user-attachments/assets/1eb48fae-f788-485c-a248-23f31884980f
+https://github.com/user-attachments/assets/3f4f615f-9c79-4c46-b06d-b38a25e859aa
 
-https://github.com/user-attachments/assets/d78a40c4-e71a-4b76-a187-f88568a2f1d7
-
-https://github.com/user-attachments/assets/7490e502-25b7-4913-adaa-caa9360c2e13
+https://github.com/user-attachments/assets/7d63be93-2fe9-4d48-b720-2f3538143f23
 
 </details>
 
 <details>
 <summary><strong>🏠 Дома и Пейзажи</strong></summary>
 
-https://github.com/user-attachments/assets/2852a37c-9590-40b9-962f-0a991493d3b4
 
-https://github.com/user-attachments/assets/de175bd4-8b51-4e5c-a735-96b9a6e7ab47
 
-https://github.com/user-attachments/assets/d276a582-5c7b-4995-8de5-4a78edac2871
+https://github.com/user-attachments/assets/fb803c22-50cb-45d1-a144-d3df8233310e
 
-https://github.com/user-attachments/assets/cb97e9f5-8476-4bd3-8b23-cd2a08b11193
+https://github.com/user-attachments/assets/7444a19f-2be3-480f-8096-5aa3134fea0a
 
-https://github.com/user-attachments/assets/5274ca38-21e4-480c-9c70-37bc13c3364d
+https://github.com/user-attachments/assets/9e54422f-a6ad-4ff7-a0ea-4f52f56039cc
 
-https://github.com/user-attachments/assets/e50d03e4-972e-41e7-bb6e-89c28edda27c
+https://github.com/user-attachments/assets/bf56b52a-c41c-4f78-b8da-da1ed2f8e3b9
 
-https://github.com/user-attachments/assets/6e3aae70-e433-418d-8b6d-2d6a633dec2f
+https://github.com/user-attachments/assets/c16ee009-cd56-44c6-af8c-751f1afe81cd
 
-https://github.com/user-attachments/assets/51bf265d-67bd-4cb6-8f30-35d2956763ba
+https://github.com/user-attachments/assets/036092c8-2297-48d0-9440-10f289da746f
 
-https://github.com/user-attachments/assets/1887aac2-ceed-44e4-8f89-55a4834aae56
+https://github.com/user-attachments/assets/c954cbfd-0fb5-4363-a22c-d8c0a743e275
+
+https://github.com/user-attachments/assets/ff328d6c-f958-465c-b2f2-1cee0ae71643
+
 
 </details>
 
 <details>
 <summary><strong>🌌 Космос и Порталы</strong></summary>
 
-https://github.com/user-attachments/assets/dab32b73-d15a-4b34-9d4b-73bc7c15ee67
 
-https://github.com/user-attachments/assets/a06c798e-3c3c-4cfe-b9c0-554055346d08
+https://github.com/user-attachments/assets/b633c1b4-478d-4318-9eb1-f6c01502074f
 
-https://github.com/user-attachments/assets/4479f241-8260-4cf7-ab21-7bdb7d7d86e3
+https://github.com/user-attachments/assets/36e83a35-50c0-4168-b54e-2fa680a7847e
 
-https://github.com/user-attachments/assets/bc6c5042-1155-47ce-9003-86ba916bc2d6
+https://github.com/user-attachments/assets/b5346394-a891-4719-b8dd-c551ad70d295
+
+https://github.com/user-attachments/assets/7298fc6d-3156-4875-bcb2-b7c98ffd4d39
+
+https://github.com/user-attachments/assets/12f9cff2-40af-487b-b39a-d1c93a24fbfd
+
+
 
 </details>
 
@@ -140,7 +147,15 @@ https://github.com/user-attachments/assets/bc6c5042-1155-47ce-9003-86ba916bc2d6
 
 ## 📥 Установка
 
-### 🔧 Шаг 1: Установка зависимостей
+Вы можете выбрать один из двух способов установки:
+
+1.  **Простой способ:** Скачать весь репозиторий со всеми темами.
+2.  **Рекомендуемый способ:** Скачать только одну нужную вам тему, чтобы сэкономить время и трафик.
+
+<details>
+<summary><strong>👉 Вариант 1: Простая установка (скачать все темы)</strong></summary>
+
+### Шаг 1: Установка зависимостей
 
 Выберите команду для вашего дистрибутива:
 
@@ -151,7 +166,6 @@ https://github.com/user-attachments/assets/bc6c5042-1155-47ce-9003-86ba916bc2d6
 sudo pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 ```
 </details>
-
 <details>
 <summary><strong>🔵 Fedora</strong></summary>
 
@@ -159,7 +173,6 @@ sudo pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia
 ```
 </details>
-
 <details>
 <summary><strong>🦎 OpenSUSE</strong></summary>
 
@@ -167,7 +180,6 @@ sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia
 sudo zypper install sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports
 ```
 </details>
-
 <details>
 <summary><strong>🌊 Void Linux</strong></summary>
 
@@ -176,25 +188,105 @@ sudo xbps-install sddm qt6-svg qt6-virtualkeyboard qt6-multimedia
 ```
 </details>
 
-### 📦 Шаг 2: Загрузка темы
+### Шаг 2: Загрузка тем
 
 ```bash
 git clone https://github.com/Sm1tee/sddm-theme.git
-cd sddm-theme/
 ```
 
-### 📂 Шаг 3: Установка файлов темы
+### Шаг 3: Копирование файлов темы и шрифтов
 
 ```bash
-sudo cp -r sddm/themes/sm1tee /usr/share/sddm/themes/
-```
+# Переходим в скачанную папку
+cd sddm-theme
 
-### 🔤 Шаг 4: Установка шрифтов
+# Копируем папку с темами
+sudo cp -r themes/sm1tee /usr/share/sddm/themes/
 
-```bash
-sudo cp -r sddm/themes/sm1tee/fonts/* /usr/share/fonts/
+# Копируем шрифты
+sudo cp -r themes/sm1tee/fonts/* /usr/share/fonts/
 sudo fc-cache -fv
 ```
+
+### Шаг 4: 🎨 Выбор конкретного дизайна
+
+Для смены темы отредактируйте файл метаданных:
+
+```bash
+sudo nano /usr/share/sddm/themes/sm1tee/metadata.desktop
+```
+
+Все доступные варианты тем закомментированы в конце файла.
+
+
+> После этого переходите к разделу [**⚙️ Настройка**](#️-настройка).
+
+</details>
+
+<details>
+<summary><strong>⭐ Вариант 2: Рекомендуемая установка (только одна тема)</strong></summary>
+
+<br>
+Этот репозиторий содержит много больших видео-файлов. Чтобы не скачивать их все, вы можете загрузить только ту тему, которая вам нужна.
+
+### Шаг 1: Установка зависимостей
+
+Сначала убедитесь, что у вас установлены все необходимые компоненты для вашего дистрибутива (см. списки в "Варианте 1").
+
+### Шаг 2: Клонирование структуры репозитория
+
+Эта команда создаст папку `sddm-theme`, но еще **не будет скачивать содержимое файлов**. Это сэкономит трафик.
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/Sm1tee/sddm-theme.git
+cd sddm-theme
+```
+
+### Шаг 3: Выбор и загрузка вашей темы
+
+Теперь укажите, какую именно тему вы хотите скачать. **Замените `НАЗВАНИЕ_ТЕМЫ`** в команде ниже на имя понравившейся темы из [Галереи](#-галерея-тем) (например: `witcher`, `samurai`, `bones`, `apocalypse` и т.д.).
+
+```bash
+# Шаблон команды для скачивания одной темы
+git sparse-checkout set --no-cone   "/README.md"   "themes/sm1tee/components/"   "themes/sm1tee/fonts/"   "themes/sm1tee/icons/"   "/themes/sm1tee/Main.qml"   "/themes/sm1tee/metadata.desktop"   "/themes/sm1tee/qmldir"   "/themes/sm1tee/configs/НАЗВАНИЕ_ТЕМЫ.conf"   "/themes/sm1tee/backgrounds/НАЗВАНИЕ_ТЕМЫ.mp4"   "/themes/sm1tee/backgrounds/НАЗВАНИЕ_ТЕМЫ.png"
+```
+
+<details>
+<summary><strong>Нажмите, чтобы увидеть пример для темы "witcher"</strong></summary>
+
+Если вы хотите скачать тему "witcher", команда будет выглядеть так:
+
+```bash
+git sparse-checkout set --no-cone   "/README.md"   "themes/sm1tee/components/"   "themes/sm1tee/fonts/"   "themes/sm1tee/icons/"   "/themes/sm1tee/Main.qml"   "/themes/sm1tee/metadata.desktop"   "/themes/sm1tee/qmldir"   "/themes/sm1tee/configs/witcher.conf"   "/themes/sm1tee/backgrounds/witcher.mp4"   "/themes/sm1tee/backgrounds/witcher.png"
+```
+</details>
+
+### Шаг 4: Копирование файлов темы и шрифтов
+
+Теперь, когда нужные файлы загружены, можно скопировать их в системные папки.
+
+```bash
+# Копируем папку с темами
+sudo cp -r themes/sm1tee /usr/share/sddm/themes/
+
+# Копируем шрифты
+sudo cp -r themes/sm1tee/fonts/* /usr/share/fonts/
+sudo fc-cache -fv
+```
+### Шаг 5: Редактирование файла metadata.desktop
+
+Отредактируйте файл метаданных и укажите в последней строке название темы, которую вы скачали - ConfigFile=configs/ИмяВашейТемы (все варианты тем закомментированы в подвале файла):
+
+```bash
+sudo nano /usr/share/sddm/themes/sm1tee/metadata.desktop
+```
+
+> Отлично! Теперь переходите к разделу [**⚙️ Настройка**](#️-настройка).
+
+</details>
+
+
+
 
 ---
 
@@ -221,15 +313,7 @@ InputMethod=qtvirtualkeyboard
 GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/sm1tee/components/,QT_IM_MODULE=qtvirtualkeyboard
 ```
 
-### 🎨 Выбор конкретного дизайна
 
-Для смены темы отредактируйте файл метаданных:
-
-```bash
-sudo nano /usr/share/sddm/themes/sm1tee/metadata.desktop
-```
-
-Все доступные варианты тем закомментированы в конце файла. Раскомментируйте нужную тему.
 
 ### 🔍 Предварительный просмотр темы
 
@@ -291,8 +375,14 @@ sddm/themes/sm1tee/
 
 1. Убедитесь, что шрифты установлены: `sudo cp -r sddm/themes/sm1tee/fonts/* /usr/share/fonts/`
 2. Обновите кэш шрифтов: `sudo fc-cache -fv`
-3. Проверьте доступные шрифты: `fc-list | grep -i sm1tee`
 </details>
+
+<details>
+<summary><strong> 🤖 Любые другие проблемы</strong></summary>
+<br>
+Приложите содержание данной инструкции и описание своей проблемы в диалог с любым чат ботом (например ChatGPT) и вы получите развернутое решение. 
+</details>
+
 
 ---
 

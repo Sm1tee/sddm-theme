@@ -9,7 +9,7 @@ MainScript=Main.qml
 TranslationsDirectory=translations
 QtVersion=6
 
-ConfigFile=configs/harry.conf
+ConfigFile=configs/window2.conf
 
 ; ConfigFile=configs/space.conf
 ; ConfigFile=configs/space2.conf
