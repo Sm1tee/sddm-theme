@@ -281,7 +281,7 @@ sudo fc-cache -fv
 sudo nano /usr/share/sddm/themes/sm1tee/metadata.desktop
 ```
 
-Секцию ConfigFile=configs/ в конце файла и укажите тему которую вы скачали (Например ConfigFile=configs/witcher ) 
+Секцию ConfigFile=configs/ в конце файла и укажите тему которую вы скачали (Например ConfigFile=configs/witcher.conf ) 
 
 В подвале файла есть закомментированные варианты со всеми названиями тем, не трогайте их - они нужны только для удобства замены тем, менять нужно только незакомментированную строку ConfigFile=configs/
 
