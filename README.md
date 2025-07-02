@@ -155,6 +155,7 @@ https://github.com/user-attachments/assets/12f9cff2-40af-487b-b39a-d1c93a24fbfd
 <details>
 <summary><strong>👉 Вариант 1: Простая установка (скачать все темы)</strong></summary>
 
+
 ### Шаг 1: Установка зависимостей
 
 Выберите команду для вашего дистрибутива:
@@ -166,6 +167,7 @@ https://github.com/user-attachments/assets/12f9cff2-40af-487b-b39a-d1c93a24fbfd
 sudo pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 ```
 </details>
+
 <details>
 <summary><strong>🔵 Fedora</strong></summary>
 
@@ -173,6 +175,7 @@ sudo pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia
 ```
 </details>
+
 <details>
 <summary><strong>🦎 OpenSUSE</strong></summary>
 
@@ -180,6 +183,18 @@ sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia
 sudo zypper install sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports
 ```
 </details>
+
+<details>
+<summary><strong>🟠 Ubuntu / Debian</strong></summary>
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install sddm qt6-svg-dev qt6-virtualkeyboard-dev qt6-multimedia-dev
+```
+</details>
+
 <details>
 <summary><strong>🌊 Void Linux</strong></summary>
 
@@ -253,6 +268,7 @@ sudo nano /usr/share/sddm/themes/sm1tee/metadata.desktop
 sudo pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 ```
 </details>
+
 <details>
 <summary><strong>🔵 Fedora</strong></summary>
 
@@ -260,6 +276,7 @@ sudo pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
 sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia
 ```
 </details>
+
 <details>
 <summary><strong>🦎 OpenSUSE</strong></summary>
 
@@ -267,6 +284,18 @@ sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia
 sudo zypper install sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports
 ```
 </details>
+
+<details>
+<summary><strong>🟠 Ubuntu / Debian</strong></summary>
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install sddm qt6-svg-dev qt6-virtualkeyboard-dev qt6-multimedia-dev
+```
+</details>
+
 <details>
 <summary><strong>🌊 Void Linux</strong></summary>
 
