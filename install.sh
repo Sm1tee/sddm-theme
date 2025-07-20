@@ -65,7 +65,20 @@ ask_confirmation() {
     fi
     
     while true; do
-        read -p "$prompt" choice < /dev/tty
+        if [ -t 0 ]; then
+            # Если stdin доступен, читаем оттуда
+            read -p "$prompt" choice
+        else
+            # Если stdin недоступен (pipe), пытаемся читать с /dev/tty
+            if [ -c /dev/tty ]; then
+                read -p "$prompt" choice < /dev/tty
+            else
+                # Если /dev/tty недоступен, используем значение по умолчанию
+                echo "Автоматически выбрано: $default"
+                choice="$default"
+            fi
+        fi
+        
         case $choice in
             [Yy]* ) return 0 ;;
             [Nn]* ) return 1 ;;
@@ -246,7 +259,20 @@ choose_installation_type() {
     echo ""
     
     while true; do
-        read -p "Ваш выбор (1-2): " install_choice < /dev/tty
+        if [ -t 0 ]; then
+            # Если stdin доступен, читаем оттуда
+            read -p "Ваш выбор (1-2): " install_choice
+        else
+            # Если stdin недоступен (pipe), пытаемся читать с /dev/tty
+            if [ -c /dev/tty ]; then
+                read -p "Ваш выбор (1-2): " install_choice < /dev/tty
+            else
+                # Если /dev/tty недоступен, используем значение по умолчанию
+                echo "Автоматически выбрана полная установка (по умолчанию)"
+                install_choice=1
+            fi
+        fi
+        
         case $install_choice in
             1)
                 INSTALL_TYPE="full"
@@ -576,7 +602,17 @@ setup_avatar() {
     if ask_confirmation "Установить свой аватар?" "Вам нужно будет указать путь к файлу изображения"; then
         while true; do
             echo ""
-            read -p "Введите полный путь к файлу аватара (PNG/JPG): " avatar_path < /dev/tty
+            if [ -t 0 ]; then
+                read -p "Введите полный путь к файлу аватара (PNG/JPG): " avatar_path
+            else
+                if [ -c /dev/tty ]; then
+                    read -p "Введите полный путь к файлу аватара (PNG/JPG): " avatar_path < /dev/tty
+                else
+                    echo "Пропуск установки аватара (автоматический режим)"
+                    add_to_report "Установка аватара" "skipped"
+                    return 0
+                fi
+            fi
             
             if [ -z "$avatar_path" ]; then
                 echo -e "${YELLOW}${WARNING} Путь не может быть пустым${NC}"
@@ -749,7 +785,16 @@ main() {
                 cd sddm-theme
                 show_available_themes
                 echo ""
-                read -p "Введите название темы для активации (например: witcher): " selected_theme < /dev/tty
+                if [ -t 0 ]; then
+                    read -p "Введите название темы для активации (например: witcher): " selected_theme
+                else
+                    if [ -c /dev/tty ]; then
+                        read -p "Введите название темы для активации (например: witcher): " selected_theme < /dev/tty
+                    else
+                        echo "Автоматически выбрана тема: witcher (по умолчанию)"
+                        selected_theme="witcher"
+                    fi
+                fi
                 cd ..
             else
                 echo -e "${RED}${CROSS} Не удалось загрузить репозиторий${NC}"
@@ -759,7 +804,16 @@ main() {
         "single")
             show_available_themes
             echo ""
-            read -p "Введите название темы для установки (например: witcher): " selected_theme < /dev/tty
+            if [ -t 0 ]; then
+                read -p "Введите название темы для установки (например: witcher): " selected_theme
+            else
+                if [ -c /dev/tty ]; then
+                    read -p "Введите название темы для установки (например: witcher): " selected_theme < /dev/tty
+                else
+                    echo "Автоматически выбрана тема: witcher (по умолчанию)"
+                    selected_theme="witcher"
+                fi
+            fi
             if ! download_single_theme "$selected_theme"; then
                 echo -e "${RED}${CROSS} Не удалось загрузить тему${NC}"
                 exit 1
