@@ -65,7 +65,7 @@ ask_confirmation() {
     fi
     
     while true; do
-        read -p "$prompt" choice
+        read -p "$prompt" choice < /dev/tty
         case $choice in
             [Yy]* ) return 0 ;;
             [Nn]* ) return 1 ;;
@@ -246,7 +246,7 @@ choose_installation_type() {
     echo ""
     
     while true; do
-        read -p "Ваш выбор (1-2): " install_choice
+        read -p "Ваш выбор (1-2): " install_choice < /dev/tty
         case $install_choice in
             1)
                 INSTALL_TYPE="full"
@@ -531,7 +531,7 @@ configure_sddm() {
     echo ""
     echo -e "${CYAN}[General]${NC}"
     echo -e "${CYAN}DisplayServer=wayland${NC}"
-    echo -e "${CYAN}GreeterEnvironment=wayland,QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard,XKB_DEFAULT_LAYOUT=us,ru${NC}"
+    echo -e "${CYAN}GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/sm1tee/components/,QT_IM_MODULE=qtvirtualkeyboard${NC}"
     echo -e "${CYAN}Numlock=on${NC}"
     echo -e "${CYAN}InputMethod=qtvirtualkeyboard${NC}"
     echo ""
@@ -547,7 +547,7 @@ CursorSize=30
 
 [General]
 DisplayServer=wayland
-GreeterEnvironment=wayland,QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard,XKB_DEFAULT_LAYOUT=us,ru
+GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/sm1tee/components/,QT_IM_MODULE=qtvirtualkeyboard
 Numlock=on
 InputMethod=qtvirtualkeyboard
 EOF
@@ -576,7 +576,7 @@ setup_avatar() {
     if ask_confirmation "Установить свой аватар?" "Вам нужно будет указать путь к файлу изображения"; then
         while true; do
             echo ""
-            read -p "Введите полный путь к файлу аватара (PNG/JPG): " avatar_path
+            read -p "Введите полный путь к файлу аватара (PNG/JPG): " avatar_path < /dev/tty
             
             if [ -z "$avatar_path" ]; then
                 echo -e "${YELLOW}${WARNING} Путь не может быть пустым${NC}"
@@ -749,7 +749,7 @@ main() {
                 cd sddm-theme
                 show_available_themes
                 echo ""
-                read -p "Введите название темы для активации (например: witcher): " selected_theme
+                read -p "Введите название темы для активации (например: witcher): " selected_theme < /dev/tty
                 cd ..
             else
                 echo -e "${RED}${CROSS} Не удалось загрузить репозиторий${NC}"
@@ -759,7 +759,7 @@ main() {
         "single")
             show_available_themes
             echo ""
-            read -p "Введите название темы для установки (например: witcher): " selected_theme
+            read -p "Введите название темы для установки (например: witcher): " selected_theme < /dev/tty
             if ! download_single_theme "$selected_theme"; then
                 echo -e "${RED}${CROSS} Не удалось загрузить тему${NC}"
                 exit 1

@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![Header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=200&section=header&text=SDDM%20Themes&fontSize=50&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=25+%20потрясающих%20тем%20с%20анимированными%20фонами&descAlignY=55&descSize=18)
+
 ## 🎬 Видео-демонстрация всех тем
 [![🎥 СМОТРЕТЬ ПОЛНЫЙ ОБЗОР ВСЕХ ТЕМ НА YOUTUBE](https://img.youtube.com/vi/fQhZ7fL-WQc/hqdefault.jpg?1)](https://youtu.be/fQhZ7fL-WQc)
 
@@ -9,40 +11,157 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/Sm1tee/sddm-theme?style=for-the-badge&logo=github&color=gold)](https://github.com/Sm1tee/sddm-theme/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/Sm1tee/sddm-theme?style=for-the-badge&logo=github&color=red)](https://github.com/Sm1tee/sddm-theme/issues)
-
+[![GitHub Forks](https://img.shields.io/github/forks/Sm1tee/sddm-theme?style=for-the-badge&logo=github&color=blue)](https://github.com/Sm1tee/sddm-theme/network)
+[![License](https://img.shields.io/github/license/Sm1tee/sddm-theme?style=for-the-badge&color=green)](LICENSE)
 
 **Коллекция из 25+ потрясающих тем для SDDM с анимированными фонами**
 
-[📥 Установка](#-установка) • [🎯 Особенности](#-особенности) • [🎨 Галерея](#-галерея-тем) • [⚙️ Настройка](#️-настройка)
+[🚀 Автоустановка](#-автоматическая-установка) • [📥 Ручная установка](#-ручная-установка) • [🎯 Особенности](#-особенности) • [🎨 Галерея](#-галерея-тем) • [⚙️ Настройка](#️-настройка)
 
 </div>
 
 ---
 
-## 🎯 Особенности
+## 📊 Статистика проекта
+
+<div align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Sm1tee/sddm-theme?style=flat-square&color=blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/Sm1tee/sddm-theme?style=flat-square&color=green)
+![GitHub contributors](https://img.shields.io/github/contributors/Sm1tee/sddm-theme?style=flat-square&color=orange)
+![GitHub downloads](https://img.shields.io/github/downloads/Sm1tee/sddm-theme/total?style=flat-square&color=purple)
+
+</div>
+
+---
+
+## 🚀 Автоматическая установка
+
+> **🎉 Рекомендуемый способ!** Интерактивный скрипт установки с пошаговым руководством
+
+<div align="center">
+
+### 🔥 Одна команда — полная установка
+
+**Для Bash/Zsh:**
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/Sm1tee/sddm-theme/main/install.sh)
+```
+
+**Для Fish или универсальный способ:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/Sm1tee/sddm-theme/main/install.sh | bash
+```
+
+**Альтернативный способ (работает везде):**
+```bash
+wget -qO- https://raw.githubusercontent.com/Sm1tee/sddm-theme/main/install.sh | bash
+```
+
+</div>
+
+### 🤖 Что делает автоустановщик:
 
 <table>
 <tr>
 <td width="50%">
 
-**🎨 Визуальные возможности**
-- ✨ 25+ уникальных тем различных стилей
-- 🎬 Анимированные фоны в формате MP4
-- 🎨 Кастомные шрифты для каждой темы
-- 🔧 Полная кастомизация всех элементов
+**🔍 Умная диагностика**
+- Автоматически определяет ваш дистрибутив Linux
+- Проверяет системные зависимости
+- Предлагает оптимальные команды установки
+
+**📦 Управление пакетами**
+- Устанавливает все необходимые зависимости
+- Поддерживает 5+ популярных дистрибутивов
+- Показывает подробные объяснения каждого пакета
 
 </td>
 <td width="50%">
 
-**⚡ Функциональность**
-- 📱 Виртуальная клавиатура с поддержкой
-- 🌐 Мультиязычность (включая русский)
-- 🔐 Современный UI для ввода пароля
-- ⚡ Быстрое переключение между темами
+**🎨 Гибкая установка**
+- Выбор между полной установкой или одной темой
+- Интерактивный выбор активной темы
+- Автоматическая настройка конфигурации SDDM
+
+**🛠️ Дополнительные возможности**
+- Установка пользовательского аватара
+- Предварительный просмотр темы
+- Подробный отчет о выполненных действиях
 
 </td>
 </tr>
 </table>
+
+### 🐧 Поддерживаемые дистрибутивы:
+
+<div align="center">
+
+| Дистрибутив | Статус | Команда установки |
+|-------------|--------|-------------------|
+| 🐧 **Arch Linux** / Manjaro / EndeavourOS | ✅ Полная поддержка | `pacman -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg` |
+| 🔵 **Fedora** | ✅ Полная поддержка | `dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia` |
+| 🦎 **openSUSE** | ✅ Полная поддержка | `zypper install sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-multimedia` |
+| 🟠 **Ubuntu** / Debian / Pop!_OS / Mint | ✅ Полная поддержка | `apt install sddm qt6-svg-dev qt6-virtualkeyboard-dev qt6-multimedia-dev` |
+| 🌊 **Void Linux** | ✅ Полная поддержка | `xbps-install sddm qt6-svg qt6-virtualkeyboard qt6-multimedia` |
+
+</div>
+
+### 📋 Интерактивный процесс установки:
+
+```
+🎨 SDDM Theme sm1tee - Установщик
+
+ШАГ 1: Определение системы ✅
+ШАГ 2: Установка зависимостей SDDM ⚙️
+ШАГ 3: Выбор типа установки 🎯
+ШАГ 4: Загрузка тем с GitHub 📥
+ШАГ 5: Установка файлов темы 📁
+ШАГ 6: Установка шрифтов 🔤
+ШАГ 7: Настройка активной темы 🎨
+ШАГ 8: Настройка конфигурации SDDM ⚙️
+ШАГ 9: Установка аватара (опционально) 👤
+ШАГ 10: Предварительный просмотр 👀
+```
+
+---
+
+## 🎯 Особенности
+
+<div align="center">
+
+| 🎨 **Визуальные возможности** | ⚡ **Функциональность** | 🛠️ **Удобство** |
+|:---:|:---:|:---:|
+| ✨ **25+** уникальных тем | 📱 Виртуальная клавиатура | 🚀 Автоматическая установка |
+| 🎬 Анимированные **MP4** фоны | 🌐 Мультиязычность | 🔧 Простая настройка |
+| 🎨 Кастомные шрифты | 🔐 Современный UI | ⚡ Быстрое переключение |
+| 🖼️ Поддержка аватаров | 🎮 Игровые стили | 👀 Предварительный просмотр |
+
+</div>
+
+### 🌟 Что делает эти темы особенными?
+
+- **🎭 Разнообразие стилей**: От мистических и фэнтезийных до современных и минималистичных
+- **🎥 Живые фоны**: Каждая тема имеет анимированный фон, создающий атмосферу
+- **🎨 Уникальная типографика**: Специально подобранные шрифты для каждой темы
+- **🔄 Легкое переключение**: Смена темы за несколько секунд
+- **📱 Современный UX**: Интуитивный интерфейс с поддержкой сенсорного ввода
+
+---
+
+## 📋 Системные требования
+
+<div align="center">
+
+| Компонент | Минимальная версия | Статус |
+|-----------|-------------------|--------|
+| **SDDM** | ≥ 0.21 | 🔴 Обязательно |
+| **Qt** | ≥ 6.5 | 🔴 Обязательно |
+| **qt6-svg** | Любая | 🔴 Обязательно |
+| **qt6-virtualkeyboard** | Любая | 🔴 Обязательно |
+| **qt6-multimedia** | Любая | 🔴 Обязательно |
+
+</div>
 
 ---
 
@@ -133,24 +252,15 @@ https://github.com/user-attachments/assets/12f9cff2-40af-487b-b39a-d1c93a24fbfd
 
 ---
 
-## 📋 Системные требования
+## 📥 Ручная установка
 
-| Компонент | Минимальная версия |
-|-----------|-------------------|
-| **SDDM** | ≥ 0.21 |
-| **Qt** | ≥ 6.5 |
-| **qt6-svg** | Обязательно |
-| **qt6-virtualkeyboard** | Обязательно |
-| **qt6-multimedia** | Обязательно |
+<div align="center">
 
----
+> 💡 **Совет**: Рекомендуется использовать [автоматическую установку](#-автоматическая-установка) для лучшего опыта
 
-## 📥 Установка
+</div>
 
-Вы можете выбрать один из двух способов установки:
-
-1.  **Простой способ:** Скачать весь репозиторий со всеми темами.
-2.  **Рекомендуемый способ:** Скачать только одну нужную вам тему, чтобы сэкономить время и трафик.
+Если предпочитаете ручную установку, выберите один из способов:
 
 <details>
 <summary><strong>👉 Вариант 1: Простая установка (скачать все темы)</strong></summary>
@@ -378,8 +488,6 @@ sudo nano /usr/share/sddm/themes/sm1tee/metadata.desktop
 
 </details>
 
-
-
 ---
 
 ## ⚙️ Настройка
@@ -405,18 +513,15 @@ InputMethod=qtvirtualkeyboard
 GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/sm1tee/components/,QT_IM_MODULE=qtvirtualkeyboard
 ```
 
-
-## 👤 Установка аватара
+### 👤 Установка аватара
 
 Чтобы установить свой аватар, который будет отображаться на экране входа, выполните следующую команду в терминале. Она скопирует его в нужное место.
-
 
 ```bash
 sudo cp /полный/путь/к/аватару.png /var/lib/AccountsService/icons/ИмяВашегоПользователя
 ```
 
 *   **Замените** `путь/к/вашему/аватару.png` на реальный путь к вашему файлу.
-
 
 ### 🔍 Предварительный просмотр темы
 
@@ -481,11 +586,31 @@ sddm/themes/sm1tee/
 </details>
 
 <details>
-<summary><strong> 🤖 Любые другие проблемы</strong></summary>
+<summary><strong>🤖 Скрипт автоустановки не работает</strong></summary>
+
+1. Проверьте подключение к интернету
+2. Убедитесь, что установлены `curl` и `bash`
+3. Попробуйте скачать скрипт вручную: `wget https://raw.githubusercontent.com/Sm1tee/sddm-theme/main/install.sh && bash install.sh`
+4. Проверьте права на выполнение: `chmod +x install.sh`
+</details>
+
+<details>
+<summary><strong>🤖 Любые другие проблемы</strong></summary>
 <br>
 Приложите содержание данной инструкции и описание своей проблемы в диалог с любым чат ботом (например ChatGPT) и вы получите развернутое решение. 
 </details>
 
+---
+
+## 🤝 Вклад в проект
+
+Хотите помочь проекту? Вот несколько способов:
+
+- ⭐ **Поставьте звездочку** - это мотивирует на дальнейшую разработку
+- 🐛 **Сообщите об ошибке** - создайте issue с описанием проблемы
+- 💡 **Предложите идею** - поделитесь идеями для новых тем
+- 🎨 **Создайте тему** - добавьте свою уникальную тему
+- 📖 **Улучшите документацию** - помогите сделать инструкции понятнее
 
 ---
 
@@ -497,7 +622,12 @@ sddm/themes/sm1tee/
 
 <div align="center">
 
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer)
+
 **⭐ Понравилось? Поставьте звездочку!**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Sm1tee-black?style=for-the-badge&logo=github)](https://github.com/Sm1tee)
+[![Telegram](https://img.shields.io/badge/Telegram-@sm1tee-blue?style=for-the-badge&logo=telegram)](https://t.me/sm1tee)
 
 Made with ❤️ by [Sm1tee](https://github.com/Sm1tee)
 
