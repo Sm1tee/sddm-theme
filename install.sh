@@ -302,6 +302,55 @@ show_available_themes() {
     echo ""
 }
 
+# Функция для выбора темы из пронумерованного списка
+select_theme_from_list() {
+    local themes=(
+        "apocalypse" "bones" "demon" "explosion" "gate" "gate2" "wizard"
+        "samurai" "samurai2" "samurai3" "samurai4" "solder" "warrior"
+        "house" "house2" "house3" "house4" "house5" "tree" "window" "window2" "calmness"
+        "space" "space2" "witcher" "harry"
+    )
+    
+    echo -e "${WHITE}Доступные темы:${NC}"
+    echo ""
+    
+    # Показываем пронумерованный список
+    for i in "${!themes[@]}"; do
+        local num=$((i + 1))
+        printf "${CYAN}%2d)${NC} ${themes[i]}\n" "$num"
+    done
+    echo ""
+    
+    while true; do
+        if [ -t 0 ]; then
+            read -p "Выберите номер темы (1-${#themes[@]}): " theme_choice
+        else
+            if [ -c /dev/tty ]; then
+                read -p "Выберите номер темы (1-${#themes[@]}): " theme_choice < /dev/tty
+            else
+                echo "Автоматически выбрана тема: witcher (по умолчанию)"
+                selected_theme="witcher"
+                return 0
+            fi
+        fi
+        
+        # Проверяем, что введено число
+        if [[ "$theme_choice" =~ ^[0-9]+$ ]]; then
+            # Проверяем, что число в допустимом диапазоне
+            if [ "$theme_choice" -ge 1 ] && [ "$theme_choice" -le "${#themes[@]}" ]; then
+                local index=$((theme_choice - 1))
+                selected_theme="${themes[index]}"
+                echo -e "${GREEN}${CHECK} Выбрана тема: $selected_theme${NC}"
+                return 0
+            else
+                echo -e "${RED}${CROSS} Неверный номер! Введите число от 1 до ${#themes[@]}${NC}"
+            fi
+        else
+            echo -e "${RED}${CROSS} Введите корректный номер темы (число от 1 до ${#themes[@]})${NC}"
+        fi
+    done
+}
+
 # Функция для загрузки репозитория
 download_repository() {
     print_step_header "ШАГ 4: Загрузка всех тем с GitHub                            "
@@ -783,18 +832,7 @@ main() {
         "full")
             if download_repository; then
                 cd sddm-theme
-                show_available_themes
-                echo ""
-                if [ -t 0 ]; then
-                    read -p "Введите название темы для активации (например: witcher): " selected_theme
-                else
-                    if [ -c /dev/tty ]; then
-                        read -p "Введите название темы для активации (например: witcher): " selected_theme < /dev/tty
-                    else
-                        echo "Автоматически выбрана тема: witcher (по умолчанию)"
-                        selected_theme="witcher"
-                    fi
-                fi
+                select_theme_from_list
                 cd ..
             else
                 echo -e "${RED}${CROSS} Не удалось загрузить репозиторий${NC}"
@@ -802,18 +840,7 @@ main() {
             fi
             ;;
         "single")
-            show_available_themes
-            echo ""
-            if [ -t 0 ]; then
-                read -p "Введите название темы для установки (например: witcher): " selected_theme
-            else
-                if [ -c /dev/tty ]; then
-                    read -p "Введите название темы для установки (например: witcher): " selected_theme < /dev/tty
-                else
-                    echo "Автоматически выбрана тема: witcher (по умолчанию)"
-                    selected_theme="witcher"
-                fi
-            fi
+            select_theme_from_list
             if ! download_single_theme "$selected_theme"; then
                 echo -e "${RED}${CROSS} Не удалось загрузить тему${NC}"
                 exit 1
