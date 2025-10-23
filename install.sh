@@ -146,18 +146,46 @@ check_system_dependencies() {
     return 0
 }
 
+# Функция для проверки установлен ли пакет
+is_package_installed() {
+    local package="$1"
+    
+    case $DISTRO in
+        "arch"|"manjaro"|"endeavouros")
+            pacman -Qi "$package" &>/dev/null
+            ;;
+        "fedora")
+            rpm -q "$package" &>/dev/null
+            ;;
+        "opensuse"|"opensuse-leap"|"opensuse-tumbleweed")
+            rpm -q "$package" &>/dev/null
+            ;;
+        "ubuntu"|"debian"|"pop"|"elementary"|"linuxmint")
+            dpkg -l "$package" 2>/dev/null | grep -q "^ii"
+            ;;
+        "void")
+            xbps-query "$package" &>/dev/null
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
+
 # Функция для установки зависимостей
 install_dependencies() {
-    print_step_header "ШАГ 2: Установка зависимостей SDDM                           "
+    print_step_header "ШАГ 2: Проверка и установка зависимостей SDDM                "
     
     local packages=""
     local install_cmd=""
     local explanation=""
+    local missing_packages=()
+    local installed_packages=()
     
     case $DISTRO in
         "arch"|"manjaro"|"endeavouros")
             packages="sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg"
-            install_cmd="sudo pacman -S --needed $packages"
+            install_cmd="sudo pacman -S --needed --noconfirm"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
 • sddm - менеджер дисплея (экран входа)
 • qt6-svg - поддержка SVG иконок в интерфейсе
@@ -166,7 +194,7 @@ install_dependencies() {
             ;;
         "fedora")
             packages="sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia"
-            install_cmd="sudo dnf install $packages"
+            install_cmd="sudo dnf install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
 • sddm - менеджер дисплея (экран входа)
 • qt6-qtsvg - поддержка SVG иконок в интерфейсе
@@ -175,7 +203,7 @@ install_dependencies() {
             ;;
         "opensuse"|"opensuse-leap"|"opensuse-tumbleweed")
             packages="sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports"
-            install_cmd="sudo zypper install $packages"
+            install_cmd="sudo zypper install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
 • sddm-qt6 - менеджер дисплея с поддержкой Qt6
 • libQt6Svg6 - библиотека для SVG иконок
@@ -184,7 +212,7 @@ install_dependencies() {
             ;;
         "ubuntu"|"debian"|"pop"|"elementary"|"linuxmint")
             packages="sddm qt6-svg-dev qt6-virtualkeyboard-dev qt6-multimedia-dev"
-            install_cmd="sudo apt update && sudo apt install $packages"
+            install_cmd="sudo apt install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
 • sddm - менеджер дисплея (экран входа)
 • qt6-svg-dev - поддержка SVG иконок в интерфейсе
@@ -193,7 +221,7 @@ install_dependencies() {
             ;;
         "void")
             packages="sddm qt6-svg qt6-virtualkeyboard qt6-multimedia"
-            install_cmd="sudo xbps-install $packages"
+            install_cmd="sudo xbps-install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
 • sddm - менеджер дисплея (экран входа)
 • qt6-svg - поддержка SVG иконок в интерфейсе
@@ -219,27 +247,107 @@ install_dependencies() {
             ;;
     esac
     
-    echo -e "${explanation}"
-    echo ""
-    echo -e "${YELLOW}Команда для установки:${NC} $install_cmd"
+    echo -e "${BLUE}Проверяю установленные пакеты...${NC}"
     echo ""
     
-    if ask_confirmation "Установить эти пакеты?" "Без них тема не будет работать корректно"; then
+    # Проверяем каждый пакет
+    for package in $packages; do
+        if is_package_installed "$package"; then
+            echo -e "${GREEN}${CHECK} $package - уже установлен${NC}"
+            installed_packages+=("$package")
+        else
+            echo -e "${YELLOW}${WARNING} $package - не установлен${NC}"
+            missing_packages+=("$package")
+        fi
+    done
+    
+    echo ""
+    
+    # Если все пакеты установлены
+    if [ ${#missing_packages[@]} -eq 0 ]; then
+        echo -e "${GREEN}${CHECK} Все необходимые зависимости уже установлены${NC}"
+        add_to_report "Проверка зависимостей (все установлены)" "performed"
+        return 0
+    fi
+    
+    # Если есть недостающие пакеты
+    echo -e "${explanation}"
+    echo ""
+    echo -e "${YELLOW}Необходимо установить следующие пакеты:${NC}"
+    for package in "${missing_packages[@]}"; do
+        echo -e "  ${YELLOW}•${NC} $package"
+    done
+    echo ""
+    echo -e "${YELLOW}Команда для установки:${NC} $install_cmd ${missing_packages[*]}"
+    echo ""
+    
+    if ask_confirmation "Установить недостающие пакеты?" "Без них тема не будет работать корректно" "y"; then
         echo -e "${BLUE}${INFO} Выполняется установка...${NC}"
-        if eval "$install_cmd"; then
-            echo -e "${GREEN}${CHECK} Зависимости успешно установлены${NC}"
-            INSTALLED_PACKAGES+=($packages)
-            add_to_report "Установка зависимостей: $packages" "performed"
-            return 0
+        
+        # Для Debian/Ubuntu сначала обновляем список пакетов
+        if [[ "$DISTRO" =~ ^(ubuntu|debian|pop|elementary|linuxmint)$ ]]; then
+            echo -e "${BLUE}${INFO} Обновление списка пакетов...${NC}"
+            if ! sudo apt update; then
+                echo -e "${RED}${CROSS} Ошибка при обновлении списка пакетов${NC}"
+                return 1
+            fi
+        fi
+        
+        # Устанавливаем недостающие пакеты
+        if eval "$install_cmd ${missing_packages[*]}"; then
+            echo ""
+            echo -e "${BLUE}${INFO} Проверяю успешность установки...${NC}"
+            
+            local failed_packages=()
+            for package in "${missing_packages[@]}"; do
+                if is_package_installed "$package"; then
+                    echo -e "${GREEN}${CHECK} $package - успешно установлен${NC}"
+                    INSTALLED_PACKAGES+=("$package")
+                else
+                    echo -e "${RED}${CROSS} $package - не удалось установить${NC}"
+                    failed_packages+=("$package")
+                fi
+            done
+            
+            if [ ${#failed_packages[@]} -eq 0 ]; then
+                echo ""
+                echo -e "${GREEN}${CHECK} Все зависимости успешно установлены${NC}"
+                add_to_report "Установка зависимостей: ${missing_packages[*]}" "performed"
+                return 0
+            else
+                echo ""
+                echo -e "${RED}${CROSS} Не удалось установить некоторые пакеты: ${failed_packages[*]}${NC}"
+                echo -e "${YELLOW}${WARNING} Тема может не работать корректно${NC}"
+                
+                if ask_confirmation "Продолжить установку?" "Некоторые функции могут не работать"; then
+                    add_to_report "Установка зависимостей (частично: ${INSTALLED_PACKAGES[*]})" "performed"
+                    return 0
+                else
+                    return 1
+                fi
+            fi
         else
             echo -e "${RED}${CROSS} Ошибка при установке зависимостей${NC}"
-            return 1
+            echo -e "${YELLOW}${WARNING} Попробуйте установить пакеты вручную:${NC}"
+            echo -e "${YELLOW}$install_cmd ${missing_packages[*]}${NC}"
+            
+            if ask_confirmation "Продолжить установку?" "Тема может не работать без зависимостей"; then
+                add_to_report "Установка зависимостей (ошибка)" "skipped"
+                return 0
+            else
+                return 1
+            fi
         fi
     else
         echo -e "${YELLOW}${WARNING} Установка зависимостей отклонена${NC}"
         echo -e "${YELLOW}${WARNING} Тема может не работать без необходимых пакетов${NC}"
         add_to_report "Установка зависимостей" "skipped"
-        return 1
+        
+        if ask_confirmation "Продолжить установку?" "Тема может не работать корректно"; then
+            return 0
+        else
+            return 1
+        fi
     fi
 }
 
