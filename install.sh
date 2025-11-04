@@ -151,20 +151,29 @@ is_package_installed() {
     local package="$1"
     
     case $DISTRO in
-        "arch"|"manjaro"|"endeavouros")
+        "arch"|"manjaro"|"endeavouros"|"cachyos"|"artix"|"arcolinux"|"garuda"|"crystal"|"rebornos")
             pacman -Qi "$package" &>/dev/null
             ;;
-        "fedora")
+        "fedora"|"rhel"|"centos"|"rocky"|"almalinux"|"nobara")
             rpm -q "$package" &>/dev/null
             ;;
-        "opensuse"|"opensuse-leap"|"opensuse-tumbleweed")
+        "opensuse"|"opensuse-leap"|"opensuse-tumbleweed"|"suse")
             rpm -q "$package" &>/dev/null
             ;;
-        "ubuntu"|"debian"|"pop"|"elementary"|"linuxmint")
+        "ubuntu"|"debian"|"pop"|"elementary"|"linuxmint"|"zorin"|"mx"|"kali"|"parrot"|"deepin"|"lmde")
             dpkg -l "$package" 2>/dev/null | grep -q "^ii"
             ;;
         "void")
             xbps-query "$package" &>/dev/null
+            ;;
+        "gentoo"|"funtoo")
+            equery list "$package" &>/dev/null
+            ;;
+        "solus")
+            eopkg list-installed "$package" &>/dev/null
+            ;;
+        "nixos")
+            nix-env -q "$package" &>/dev/null
             ;;
         *)
             return 1
@@ -183,7 +192,7 @@ install_dependencies() {
     local installed_packages=()
     
     case $DISTRO in
-        "arch"|"manjaro"|"endeavouros")
+        "arch"|"manjaro"|"endeavouros"|"cachyos"|"artix"|"arcolinux"|"garuda"|"crystal"|"rebornos")
             packages="sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg"
             install_cmd="sudo pacman -S --needed --noconfirm"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
@@ -192,7 +201,7 @@ install_dependencies() {
 • qt6-virtualkeyboard - виртуальная клавиатура на экране
 • qt6-multimedia-ffmpeg - воспроизведение видео фонов"
             ;;
-        "fedora")
+        "fedora"|"rhel"|"centos"|"rocky"|"almalinux"|"nobara")
             packages="sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia"
             install_cmd="sudo dnf install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
@@ -201,7 +210,7 @@ install_dependencies() {
 • qt6-qtvirtualkeyboard - виртуальная клавиатура на экране
 • qt6-qtmultimedia - воспроизведение видео фонов"
             ;;
-        "opensuse"|"opensuse-leap"|"opensuse-tumbleweed")
+        "opensuse"|"opensuse-leap"|"opensuse-tumbleweed"|"suse")
             packages="sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports"
             install_cmd="sudo zypper install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
@@ -210,7 +219,7 @@ install_dependencies() {
 • qt6-virtualkeyboard - виртуальная клавиатура
 • qt6-multimedia - воспроизведение видео фонов"
             ;;
-        "ubuntu"|"debian"|"pop"|"elementary"|"linuxmint")
+        "ubuntu"|"debian"|"pop"|"elementary"|"linuxmint"|"zorin"|"mx"|"kali"|"parrot"|"deepin"|"lmde")
             packages="sddm qt6-svg-dev qt6-virtualkeyboard-dev qt6-multimedia-dev"
             install_cmd="sudo apt install -y"
             explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
@@ -228,22 +237,58 @@ install_dependencies() {
 • qt6-virtualkeyboard - виртуальная клавиатура на экране
 • qt6-multimedia - воспроизведение видео фонов"
             ;;
+        "gentoo"|"funtoo")
+            packages="x11-misc/sddm dev-qt/qtsvg dev-qt/qtvirtualkeyboard dev-qt/qtmultimedia"
+            install_cmd="sudo emerge --ask=n"
+            explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
+• x11-misc/sddm - менеджер дисплея (экран входа)
+• dev-qt/qtsvg - поддержка SVG иконок в интерфейсе
+• dev-qt/qtvirtualkeyboard - виртуальная клавиатура на экране
+• dev-qt/qtmultimedia - воспроизведение видео фонов"
+            ;;
+        "solus")
+            packages="sddm qt6-svg qt6-virtualkeyboard qt6-multimedia"
+            install_cmd="sudo eopkg install -y"
+            explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
+• sddm - менеджер дисплея (экран входа)
+• qt6-svg - поддержка SVG иконок в интерфейсе
+• qt6-virtualkeyboard - виртуальная клавиатура на экране
+• qt6-multimedia - воспроизведение видео фонов"
+            ;;
+        "nixos")
+            packages="sddm qt6.qtsvg qt6.qtvirtualkeyboard qt6.qtmultimedia"
+            install_cmd="nix-env -iA nixos."
+            explanation="Эти пакеты нужны для работы SDDM с темами Qt6:
+• sddm - менеджер дисплея (экран входа)
+• qt6.qtsvg - поддержка SVG иконок в интерфейсе
+• qt6.qtvirtualkeyboard - виртуальная клавиатура на экране
+• qt6.qtmultimedia - воспроизведение видео фонов
+ВНИМАНИЕ: Для NixOS рекомендуется использовать configuration.nix"
+            ;;
         *)
             echo -e "${YELLOW}${WARNING} Неизвестный дистрибутив: $DISTRO${NC}"
+            echo -e "${RED}${CROSS} Автоматическая установка зависимостей невозможна${NC}"
+            echo ""
             echo -e "${BLUE}Необходимо установить следующие пакеты вручную:${NC}"
             echo "• sddm - менеджер дисплея"
             echo "• qt6-svg - поддержка SVG иконок"
             echo "• qt6-virtualkeyboard - виртуальная клавиатура"
             echo "• qt6-multimedia - воспроизведение видео"
             echo ""
+            echo -e "${YELLOW}Используйте пакетный менеджер вашего дистрибутива для установки.${NC}"
+            echo -e "${YELLOW}Например:${NC}"
+            echo "  • Arch/Manjaro/CachyOS: sudo pacman -S sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg"
+            echo "  • Fedora/RHEL: sudo dnf install sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia"
+            echo "  • Ubuntu/Debian: sudo apt install sddm qt6-svg-dev qt6-virtualkeyboard-dev qt6-multimedia-dev"
+            echo "  • openSUSE: sudo zypper install sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-multimedia"
+            echo "  • Void: sudo xbps-install sddm qt6-svg qt6-virtualkeyboard qt6-multimedia"
+            echo "  • Gentoo: sudo emerge x11-misc/sddm dev-qt/qtsvg dev-qt/qtvirtualkeyboard dev-qt/qtmultimedia"
+            echo "  • Solus: sudo eopkg install sddm qt6-svg qt6-virtualkeyboard qt6-multimedia"
+            echo ""
             
-            if ask_confirmation "Продолжить установку?" "Предполагается, что зависимости уже установлены"; then
-                add_to_report "Установка зависимостей (пропущена - неизвестный дистрибутив)" "skipped"
-                return 0
-            else
-                add_to_report "Установка зависимостей" "skipped"
-                return 1
-            fi
+            echo -e "${RED}${CROSS} Автоматическая установка невозможна для дистрибутива: $DISTRO${NC}"
+            add_to_report "Установка зависимостей (пропущена - неизвестный дистрибутив: $DISTRO)" "skipped"
+            return 1
             ;;
     esac
     
@@ -317,37 +362,22 @@ install_dependencies() {
             else
                 echo ""
                 echo -e "${RED}${CROSS} Не удалось установить некоторые пакеты: ${failed_packages[*]}${NC}"
-                echo -e "${YELLOW}${WARNING} Тема может не работать корректно${NC}"
-                
-                if ask_confirmation "Продолжить установку?" "Некоторые функции могут не работать"; then
-                    add_to_report "Установка зависимостей (частично: ${INSTALLED_PACKAGES[*]})" "performed"
-                    return 0
-                else
-                    return 1
-                fi
+                echo -e "${YELLOW}${WARNING} Установите недостающие пакеты вручную и запустите скрипт снова${NC}"
+                add_to_report "Установка зависимостей (частично: ${INSTALLED_PACKAGES[*]})" "performed"
+                return 1
             fi
         else
             echo -e "${RED}${CROSS} Ошибка при установке зависимостей${NC}"
             echo -e "${YELLOW}${WARNING} Попробуйте установить пакеты вручную:${NC}"
             echo -e "${YELLOW}$install_cmd ${missing_packages[*]}${NC}"
-            
-            if ask_confirmation "Продолжить установку?" "Тема может не работать без зависимостей"; then
-                add_to_report "Установка зависимостей (ошибка)" "skipped"
-                return 0
-            else
-                return 1
-            fi
+            add_to_report "Установка зависимостей (ошибка)" "skipped"
+            return 1
         fi
     else
         echo -e "${YELLOW}${WARNING} Установка зависимостей отклонена${NC}"
-        echo -e "${YELLOW}${WARNING} Тема может не работать без необходимых пакетов${NC}"
+        echo -e "${RED}${CROSS} Невозможно продолжить без установки зависимостей${NC}"
         add_to_report "Установка зависимостей" "skipped"
-        
-        if ask_confirmation "Продолжить установку?" "Тема может не работать корректно"; then
-            return 0
-        else
-            return 1
-        fi
+        return 1
     fi
 }
 
@@ -930,7 +960,11 @@ main() {
     fi
     
     # Установка зависимостей
-    install_dependencies
+    if ! install_dependencies; then
+        echo -e "${RED}${CROSS} Установка зависимостей не выполнена${NC}"
+        echo -e "${YELLOW}${WARNING} Установите зависимости вручную и запустите скрипт снова${NC}"
+        exit 1
+    fi
     
     # Выбор типа установки
     choose_installation_type
